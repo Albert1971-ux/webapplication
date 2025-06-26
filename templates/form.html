@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Анкета пользователя</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>📝 Анкета пользователя</h1>
+
+    <form method="POST">
+        <label for="name">Имя:</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="city">Город:</label>
+        <input type="text" id="city" name="city" required>
+
+        <label for="hobby">Хобби:</label>
+        <input type="text" id="hobby" name="hobby" required>
+
+        <label for="age">Возраст:</label>
+        <input type="number" id="age" name="age" required>
+
+        <button type="submit">Отправить</button>
+    </form>
+
+    <!-- Вывод данных после отправки -->
+    {% if name %}
+    <div class="result">
+        <h2>✅ Данные сохранены!</h2>
+        <p><strong>Имя:</strong> {{ name }}</p>
+        <p><strong>Город:</strong> {{ city }}</p>
+        <p><strong>Хобби:</strong> {{ hobby }}</p>
+        <p><strong>Возраст:</strong> {{ age }}</p>
+    </div>
+    {% endif %}
+</body>
+</html>
